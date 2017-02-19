@@ -36,4 +36,45 @@ To https://github.com/billyzkid/gitflow.git
 > git branch
 * develop
   master
+
+> git checkout -b feature/feature-1 develop
+Switched to a new branch 'feature/feature-1'
+
+> git add .\README.md
+> git commit -m "Added README"
+[feature/feature-1 f04640b] Added README
+ 1 file changed, 39 insertions(+)
+ create mode 100644 README.md
+
+> git push origin feature/feature-1
+Counting objects: 3, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 829 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/billyzkid/gitflow.git
+ * [new branch]      feature/feature-1 -> feature/feature-1
+
+> git checkout develop
+Switched to branch 'develop'
+
+> git merge --no-ff feature/feature-1
+Merge made by the 'recursive' strategy.
+ README.md | 39 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
+ create mode 100644 README.md
+
+> git branch -d feature/feature-1
+Deleted branch feature/feature-1 (was f04640b).
+
+> git push origin develop
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 238 bytes | 0 bytes/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To https://github.com/billyzkid/gitflow.git
+   9ddab04..0f3c661  develop -> develop
+   
+> git push origin :feature/feature-1
+To https://github.com/billyzkid/gitflow.git
+ - [deleted]         feature/feature-1
 ```
