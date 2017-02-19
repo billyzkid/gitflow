@@ -211,4 +211,15 @@ Writing objects: 100% (1/1), 170 bytes | 0 bytes/s, done.
 Total 1 (delta 0), reused 0 (delta 0)
 To https://github.com/billyzkid/gitflow.git
  * [new tag]         0.0.2 -> 0.0.2
+
+> git log --graph --oneline --first-parent develop
+* 9d666ef Merge branch 'hotfix/0.0.2' into develop
+* 9555deb Merge branch 'release/0.0.1' into develop
+* 0f3c661 Merge branch 'feature/feature-1' into develop
+* 9ddab04 Initial commit
+
+> git log --graph --oneline --first-parent master
+* 80c3ff1 Merge branch 'hotfix/0.0.2'
+* bb50e2d Merge branch 'release/0.0.1'
+* 9ddab04 Initial commit
 ```
