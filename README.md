@@ -145,4 +145,70 @@ To https://github.com/billyzkid/gitflow.git
 > git push origin :release/0.0.1
 To https://github.com/billyzkid/gitflow.git
  - [deleted]         release/0.0.1
+
+> git checkout master
+M       README.md
+Switched to branch 'master'
+
+> git log --format=oneline
+bb50e2da0d8e56ef59dec5200569f472cf540a64 Merge branch 'release/0.0.1'
+ba09f19bbbdec5f0b0b2cb49c0be580267108be2 Updated README
+0f3c6615de04a4da8c152a1a89a9c0497a2dcd7d Merge branch 'feature/feature-1' into de
+f04640bc3e745a80a669b0cd5435b2de6ad703e1 Added README
+9ddab0415e37e51421228d0f3ed51b16628b86f8 Initial commit
+
+> git checkout -b hotfix/0.0.2 bb50e2
+M       README.md
+Switched to a new branch 'hotfix/0.0.2'
+
+> git add .\README.md
+
+> git commit -m "Fixed README"
+[hotfix/0.0.2 b12a912] Fixed README
+ 1 file changed, 70 insertions(+), 2 deletions(-)
+
+> git checkout master
+Switched to branch 'master'
+
+> git merge --no-ff hotfix/0.0.2
+Merge made by the 'recursive' strategy.
+ README.md | 72 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 70 insertions(+), 2 deletions(-)
+
+> git tag -a 0.0.2 -m "Tagging release 0.0.2"
+
+> git checkout develop
+Switched to branch 'develop'
+
+> git merge --no-ff hotfix/0.0.2
+Merge made by the 'recursive' strategy.
+ README.md | 72 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 70 insertions(+), 2 deletions(-)
+
+> git branch -d hotfix/0.0.2
+Deleted branch hotfix/0.0.2 (was b12a912).
+
+> git push origin master
+Counting objects: 4, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 887 bytes | 0 bytes/s, done.
+Total 4 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local objects.
+To https://github.com/billyzkid/gitflow.git
+   bb50e2d..80c3ff1  master -> master
+
+> git push origin develop
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 239 bytes | 0 bytes/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To https://github.com/billyzkid/gitflow.git
+   9555deb..9d666ef  develop -> develop
+
+> git push origin --tags
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 170 bytes | 0 bytes/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To https://github.com/billyzkid/gitflow.git
+ * [new tag]         0.0.2 -> 0.0.2
 ```
